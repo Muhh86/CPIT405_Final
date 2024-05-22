@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #pdf-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe{
+            width: 1200px;
+            height: 1200px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" target="_blank">
+            <img src="images/wingsLoader.gif" alt="" class="menu-icon">
+        </a>
+        <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+        <label for="menu-icon"></label>
+        <nav class="nav"> 		
+            <ul class="pt-5">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="city_weather.html">Weather</a></li>
+                <li><a href="currency_exchange.html">Currency Exchange</a></li>
+                <li><a href="saudi_attractions.html">Attractions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Portfolio</h1>
+    <div id="pdf-container">
+        <iframe src="My Resume.pdf" frameborder="0"></iframe>
+    </div>
+</body>
+</html>

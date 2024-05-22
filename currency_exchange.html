@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #widget{
+            width: 500px;
+            height: 500px; 
+            background-color:#353746 ;
+            border-radius: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 62px;
+        }
+        .inputs{
+            background-color:#353746;
+            border: none;
+            border-radius: 5px;
+            height: 50px;
+            width: 150px;
+            color: beige;
+            font-size: 30px;
+            margin: 10px;
+        }
+        button {
+        padding: 1em 1em;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: #000;
+        background-color: #33363d;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+        color: beige;
+        }
+
+        button:hover {
+        background-color: #f39c12;;
+        box-shadow: 0px 15px 20px #f39c12;;
+        color: #fff;
+        transform: translateY(-7px);
+        }
+
+        button:active {
+        transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" target="_blank">
+            <img src="images/wingsLoader.gif" alt="" class="menu-icon">
+        </a>
+        <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+        <label for="menu-icon"></label>
+        <nav class="nav"> 		
+            <ul class="pt-5">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="city_weather.html">Weather</a></li>
+                <li><a href="saudi_attractions.html">Attractions</a></li>
+                <li><a href="cv_portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Exchange</h1>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <input type="number" id="SAR" class="inputs" placeholder="SAR">
+        <button onclick="exchange()">Exchange</button>
+    </div>
+    <br>
+    <div id="widget">
+        <div>
+            <h2 style="font-size: 40px; text-align: center;">AED</h2>
+            <input type="text" class="inputs" id="AED" style="background-color: #1E2227;">
+        </div>
+    </div>
+    <div id="widget">
+        <div>
+            <h2 style="font-size: 40px; text-align: center;">EUR</h2>
+            <input type="text" class="inputs" id="EUR" style="background-color: #1E2227;">
+        </div>
+    </div>
+    <div id="widget">
+        <div>
+            <h2 style="font-size: 40px; text-align: center;">USD</h2>
+            <input type="text" class="inputs" id="USD" style="background-color: #1E2227;">
+        </div>
+    </div>
+    <div id="widget">
+        <div>
+            <h2 style="font-size: 40px; text-align: center;">GBP</h2>
+            <input type="text" class="inputs" id="GBP" style="background-color: #1E2227;">
+        </div>
+    </div>
+    <div id="widget">
+        <div>
+            <h2 style="font-size: 40px; text-align: center;">KWD</h2>
+            <input type="text" class="inputs" id="KWD" style="background-color: #1E2227;">
+        </div>
+    </div>
+    <script>
+        var sar = document.getElementById("SAR");
+        var aed = document.getElementById("AED");
+        var eur = document.getElementById("EUR");
+        var usd = document.getElementById("USD");
+        var gbp = document.getElementById("GBP");
+        var kwd = document.getElementById("KWD");
+
+        function exchange(){
+            if (sar.value == ""){
+                alert("Please enter amount in SAR")
+            } else {
+                fetch("https://open.er-api.com/v6/latest/SAR")
+                .then(response => response.json())
+                .then(data => displayCurrencies(data));
+        }
+        }
+        function displayCurrencies(data){
+            aed.value = (sar.value * data.rates.AED).toFixed(2);
+            eur.value = (sar.value * data.rates.EUR).toFixed(2);
+            usd.value = (sar.value * data.rates.USD).toFixed(2);
+            gbp.value = (sar.value * data.rates.GBP).toFixed(2);
+            kwd.value = (sar.value * data.rates.KWD).toFixed(2);
+        }
+        
+       
+
+    </script>
+</body>
+</html>
