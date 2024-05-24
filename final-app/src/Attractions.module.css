@@ -1,0 +1,32 @@
+body{
+    overflow: scroll;
+}
+.card {
+    margin-top: 50px;
+}
+
+.title {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 35px;
+    color: beige;
+}
+
+.attContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.att {
+    width: 600px;
+    border-radius: 50px;
+    padding: 20px;
+    margin-right: 20px; /* Adds space between the image and the paragraph */
+}
+
+.para {
+    font-size: 25px;
+    max-width: 750px;
+    color: beige;
+}
